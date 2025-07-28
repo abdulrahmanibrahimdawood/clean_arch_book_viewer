@@ -46,7 +46,7 @@
 //       itemBuilder: (context, index) {
 //         return Padding(
 //           padding: const EdgeInsets.symmetric(vertical: 10),
-//           child: BookListViewItem(book: books[index]),
+//           child: BookListViewItem(),
 //         );
 //       },
 //     );
