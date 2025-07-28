@@ -3,9 +3,25 @@ import 'package:clean_arc_bookly_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'best_seller_list_view.dart';
 import 'custom_app_bar.dart';
+import '../../manager/newest_books_cubit/newest_books_cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class HomeViewBody extends StatelessWidget {
+class HomeViewBody extends StatefulWidget {
   const HomeViewBody({super.key});
+
+  @override
+  State<HomeViewBody> createState() => _HomeViewBodyState();
+}
+
+class _HomeViewBodyState extends State<HomeViewBody> {
+  @override
+  void initState() {
+    super.initState();
+    // Fetch newest books when the widget is first built
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<NewestBooksCubit>(context).fetchNewestBooks();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {

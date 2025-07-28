@@ -6,9 +6,11 @@ import '../../../../../constants.dart';
 import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/styles.dart';
 import 'book_rating.dart';
+import '../../../../../Features/home/domain/entities/book_entity.dart';
 
 class BookListViewItem extends StatelessWidget {
-  const BookListViewItem({super.key});
+  final BookEntity book;
+  const BookListViewItem({super.key, required this.book});
 
   @override
   Widget build(BuildContext context) {
@@ -26,11 +28,12 @@ class BookListViewItem extends StatelessWidget {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
                     color: Colors.red,
-                    image: const DecorationImage(
+                    image: DecorationImage(
                       fit: BoxFit.fill,
-                      image: AssetImage(
-                        AssetsData.testImage,
-                      ),
+                      image: book.image != null && book.image!.isNotEmpty
+                          ? NetworkImage(book.image!)
+                          : const AssetImage(AssetsData.testImage)
+                              as ImageProvider,
                     )),
               ),
             ),
@@ -44,7 +47,7 @@ class BookListViewItem extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.width * .5,
                     child: Text(
-                      'Harry Potter and the Goblet of Fire',
+                      book.title,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: Styles.textStyle20.copyWith(
@@ -55,8 +58,10 @@ class BookListViewItem extends StatelessWidget {
                   const SizedBox(
                     height: 3,
                   ),
-                  const Text(
-                    'J.K. Rowling',
+                  Text(
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    book.authorName ?? 'Unknown Author',
                     style: Styles.textStyle14,
                   ),
                   const SizedBox(
@@ -65,7 +70,7 @@ class BookListViewItem extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        '19.99 €',
+                        'Free',
                         style: Styles.textStyle20.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
