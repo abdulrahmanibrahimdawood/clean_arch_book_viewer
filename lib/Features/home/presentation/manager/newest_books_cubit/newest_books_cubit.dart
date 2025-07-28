@@ -8,10 +8,12 @@ class NewestBooksCubit extends Cubit<NewestBooksState> {
   NewestBooksCubit(this.fetchNewestBooksUseCase) : super(NewestBooksInitial());
 
   final FetchNewestBooksUseCase fetchNewestBooksUseCase;
+  final List<BookEntity> _books = [];
 
   Future<void> fetchNewestBooks({int pageNumber = 0}) async {
     if (pageNumber == 0) {
       emit(NewestBooksLoading());
+      _books.clear();
     } else {
       emit(NewestBooksPaginationLoading());
     }
@@ -25,7 +27,11 @@ class NewestBooksCubit extends Cubit<NewestBooksState> {
         emit(NewestBooksPaginationFailure(failure.message));
       }
     }, (books) {
-      emit(NewestBooksSuccess(books));
+      if (pageNumber == 0) {
+        _books.clear();
+      }
+      _books.addAll(books);
+      emit(NewestBooksSuccess(List<BookEntity>.from(_books)));
     });
   }
 }
