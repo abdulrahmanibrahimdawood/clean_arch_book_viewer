@@ -1,4 +1,3 @@
-import 'package:clean_arc_bookly_app/Features/home/presentation/views/book_details_view.dart';
 import 'package:clean_arc_bookly_app/Features/home/presentation/views/home_view.dart';
 import 'package:go_router/go_router.dart';
 
@@ -23,10 +22,10 @@ abstract class AppRouter {
         path: kHomeView,
         builder: (context, state) => const HomeView(),
       ),
-      GoRoute(
-        path: kBookDetailsView,
-        builder: (context, state) => const BookDetailsView(),
-      ),
+      // GoRoute(
+      //   path: kBookDetailsView,
+      //   builder: (context, state) => const BookDetailsView(),
+      // ),
     ],
   );
 }
