@@ -10,9 +10,10 @@ Welcome to the bookly app, this project aims to provide free books and reading t
 - List of books.
 - Search in books.
 - Reading books.
-- قث
+ 
 ## Technologies Used
 
 - Flutter: For building the cross-platform mobile application.
 - REST API: For backend services, ensuring secure data communication.
 - Google Fonts: For a wide variety of stylish and readable fonts.  
+
