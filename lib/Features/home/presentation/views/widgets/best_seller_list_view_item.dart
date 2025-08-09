@@ -10,7 +10,7 @@ import '../../../../../Features/home/domain/entities/book_entity.dart';
 
 class BookListViewItem extends StatelessWidget {
   final BookEntity book;
-  
+
   const BookListViewItem({super.key, required this.book});
 
   @override
@@ -67,6 +67,7 @@ class BookListViewItem extends StatelessWidget {
                   ),
                   const SizedBox(
                     height: 3,
+                    //
                   ),
                   Row(
                     children: [
