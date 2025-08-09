@@ -1,16 +1,19 @@
-# clean_arc_bookly_app
+# About This Repository
 
-A new Flutter project.
+Welcome to the bookly app, this project aims to provide free books and reading them.
 
-## Getting Started
+![UI Preview](assets/images/ui.png)
 
-This project is a starting point for a Flutter application.
+## Features
 
-A few resources to get you started if this is your first Flutter project:
+- User-friendly interface: Designed to be intuitive and easy to use.
+- List of books.
+- Search in books.
+- Reading books.
+ 
+## Technologies Used
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Flutter: For building the cross-platform mobile application.
+- REST API: For backend services, ensuring secure data communication.
+- Google Fonts: For a wide variety of stylish and readable fonts.  
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
